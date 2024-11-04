@@ -1,0 +1,12 @@
+function doGet(e) {
+    return HtmlService.createHtmlOutput("Request received.");
+}
+
+function doPost(e) {
+    var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+    var data = [new Date(), e.parameter.name, e.parameter.email, e.parameter.message ,e.parameter.password ];
+    sheet.appendRow(data);
+    return ContentService.createTextOutput(JSON.stringify(data));
+}
+
+
